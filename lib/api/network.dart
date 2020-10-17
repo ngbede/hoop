@@ -1,26 +1,28 @@
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
-const String key = '';
-
 class Network {
-  dynamic jsonFile(String url) async {
-    var json;
+  /*
+   * Class is responsible for sending our get request to the NBA-API
+   * each method of the class sends a get request for a particular data-endpoint for properties of the app
+   * 1. get latest standings for bothe Eastern and Western Conference
+   * 2. get scores of NBA games played
+   * 3. get player statics such as ppg, apg, rpg, FG%, 
+   */
+
+  // make request to get Json file
+  static Future<dynamic> getJson(String url) async {
+    // make request to get Json file
     try {
       var response = await http.get(url);
       if (response.statusCode == 200) {
-        json = convert.jsonDecode(response.body);
+        if (response.body.isNotEmpty) {
+          var json = convert.jsonDecode(response.body);
+          return json;
+        }
       }
     } catch (e) {
-      print(e);
+      throw e;
     }
-    return json;
   }
-}
-
-void main() {
-  Network net = Network();
-  var json = net.jsonFile(
-      'https://api-nba-v1.p.rapidapi.com/games/seasonYear/2019/?rapidapi-key=db2fabd3b0msh7d2468c97a95f4ap1e2fe3jsn2abfc4f25e04');
-  print(json);
 }

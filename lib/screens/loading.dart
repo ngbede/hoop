@@ -1,58 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:loading_animations/loading_animations.dart';
+import 'package:hoop/json/jsons.dart';
+import 'package:hoop/widgets/bounce.dart';
+import 'package:hoop/api/urls.dart';
 import 'package:hoop/api/network.dart';
-import 'package:hoop/constant.dart';
-import 'package:hoop/layout.dart';
+import 'package:provider/provider.dart';
 
-class Loading extends StatefulWidget {
+class LoadingScreen extends StatefulWidget {
   @override
-  _LoadingState createState() => _LoadingState();
+  State<StatefulWidget> createState() => _LoadingScreen();
 }
 
-class _LoadingState extends State<Loading> {
-  final Network net = Network();
-
+class _LoadingScreen extends State<LoadingScreen> {
   void getFile() async {
     try {
-      var json = await net.jsonFile(standingsUrl);
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Layout(),
-        ),
-      );
+      var eastJson = await Network.getJson(Urls.eastStandingsUrl);
+      var westJson = await Network.getJson(Urls.westStandingsUrl);
+      //var eastIdsJson = await Network.getJson(Urls.eastTeamsUrl);
+      //var westIdsJson = await Network.getJson(Urls.westTeamsUrl);
+      Provider.of<JsonFiles>(context, listen: false).setEastStandings(eastJson);
+      Provider.of<JsonFiles>(context, listen: false).setWestStandings(westJson);
+      // print(eastJson);
+      // print("\n\n");
+      // print(westJson);
+      //Provider.of<JsonFiles>(context, listen: false).setEastId(eastIdsJson);
+      //Provider.of<JsonFiles>(context, listen: false).setWestId(westIdsJson);
+      Navigator.pushNamed(context, "/layout");
     } catch (e) {
       print(e);
     }
   }
 
   @override
+  void initState() {
+    super.initState();
+    getFile();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.tealAccent,
-        // appBar: AppBar(
-        //   backgroundColor: Color(0xFF2372A3),
-        //   title: Center(
-        //     child: Text(
-        //       'HOOP',
-        //     ),
-        //   ),
-        // ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            LoadingFlipping.circle(size: 100),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Grabbing Latest Data',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.blueGrey,
-              ),
-            ),
-          ],
-        ));
+    return Center(
+      child: BouncingBall(),
+    );
   }
 }
