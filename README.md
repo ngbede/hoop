@@ -14,8 +14,10 @@ Note: Its important to get your API Key, the below steps explain how you can ach
 - create a new dart file called "key.dart"
 - paste below code in the dart file:
 
+```
 class NbaApi {
   static final key = "YOUR-API-KEY-GOES-HERE";
 }
+```
 
 - Save the file, you should now be able to run the app on your device.
