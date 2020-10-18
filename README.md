@@ -1,16 +1,21 @@
 # hoop
 
-A new Flutter project.
+An NBA sporting app built with flutter(Googles UI framework) and the NBA-API.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Requirements
+Note: Its important to get your API Key, the below steps explain how you can acheive this. Always take care to keeping your Api keys a secret.
 
-A few resources to get you started if this is your first Flutter project:
+- log on to https://rapidapi.com/ and register an account if you don't have one.
+- After registering your account, go to the Api marketplace and subscribe to the Api-NBA @ https://rapidapi.com/api-sports/api/api-nba
+- Select a free plan which allows you to make a 100 calls per day.
+- Once subscribed to the Api on a free plan, get your API key.
+- Now Navigate to this file path on this project repo i.e lib/api/apikey
+- create a new dart file called "key.dart"
+- paste below code in the dart file:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+class NbaApi {
+  static final key = "YOUR-API-KEY-GOES-HERE";
+}
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Save the file, you should now be able to run the app on your device.
