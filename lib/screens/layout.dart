@@ -33,8 +33,8 @@ class _LayoutState extends State<Layout> {
             label: "Standings",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shield),
-            label: "Results",
+            icon: Icon(Icons.sports_basketball_sharp),
+            label: "Games",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
