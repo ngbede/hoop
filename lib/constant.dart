@@ -76,7 +76,39 @@ Map westID = {
     'https://upload.wikimedia.org//wikipedia//fr//3//3b//Jazz_de_l%27Utah_logo.png'
   ],
 };
-
+// sorted teamIds
+List<String> sortedIds = [
+  '1',
+  '2',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '14',
+  '15',
+  '16',
+  '17',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+  '24',
+  '25',
+  '26',
+  '27',
+  '28',
+  '29',
+  '30',
+  '31',
+  '38',
+  '40',
+  '41',
+];
 // teamIds --> [full Name, nickname, img-url]
 Map eastID = {
   "1": [
