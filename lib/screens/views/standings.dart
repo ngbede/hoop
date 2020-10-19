@@ -4,12 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:hoop/constant.dart';
 import 'package:hoop/widgets/table.dart';
 
-class Standings extends StatefulWidget {
-  @override
-  _StandingsState createState() => _StandingsState();
-}
-
-class _StandingsState extends State<Standings> {
+class Standings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
