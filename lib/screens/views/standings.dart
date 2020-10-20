@@ -12,6 +12,7 @@ class Standings extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0XFF1F6BA3),
+          automaticallyImplyLeading: false, // hides back arrow button
           bottom: TabBar(
             tabs: [
               Tab(

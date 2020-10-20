@@ -7,7 +7,7 @@ class Players extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: teams(),
+      children: teams(context),
     );
   }
 }

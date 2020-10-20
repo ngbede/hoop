@@ -45,10 +45,20 @@ class _ConfTableState extends State<ConfTable> {
           label: Text('Team'),
         ),
         DataColumn(
-          label: Text('W'),
+          label: Text(
+            'W',
+            style: TextStyle(
+              color: Colors.green,
+            ),
+          ),
         ),
         DataColumn(
-          label: Text('L'),
+          label: Text(
+            'L',
+            style: TextStyle(
+              color: Colors.red,
+            ),
+          ),
         ),
         DataColumn(
           label: Text('Pct'),
