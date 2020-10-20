@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           body: LoadingScreen(),
         ),
+        debugShowCheckedModeBanner: false,
         routes: {
           "/layout": (context) => Layout(),
         },
