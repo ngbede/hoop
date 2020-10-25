@@ -20,7 +20,9 @@ class _ConfTableState extends State<ConfTable> {
         cells: [
           DataCell(
             Text(
-                "$rank ${widget.teamIds[widget.json["api"]["standings"][index]["teamId"]][1]}"),
+              "$rank ${widget.teamIds[widget.json["api"]["standings"][index]["teamId"]][1]}",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
           DataCell(
             Text("${widget.json["api"]["standings"][index]["win"]}"), //
@@ -42,7 +44,12 @@ class _ConfTableState extends State<ConfTable> {
     return DataTable(
       columns: [
         DataColumn(
-          label: Text('Team'),
+          label: Text(
+            'Team',
+            style: TextStyle(
+              color: Colors.blue,
+            ),
+          ),
         ),
         DataColumn(
           label: Text(
@@ -61,7 +68,12 @@ class _ConfTableState extends State<ConfTable> {
           ),
         ),
         DataColumn(
-          label: Text('Pct'),
+          label: Text(
+            'Pct',
+            style: TextStyle(
+              color: Colors.amber,
+            ),
+          ),
         ),
       ],
       rows: tableData(),

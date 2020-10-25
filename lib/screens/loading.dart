@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hoop/json/jsons.dart';
 import 'package:hoop/widgets/bounce.dart';
-import 'package:hoop/api/urls.dart';
-import 'package:hoop/api/network.dart';
+import 'package:hoop/services/urls.dart';
+import 'package:hoop/services/network.dart';
 import 'package:provider/provider.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -15,15 +15,14 @@ class _LoadingScreen extends State<LoadingScreen> {
     try {
       var eastJson = await Network.getJson(Urls.eastStandingsUrl);
       var westJson = await Network.getJson(Urls.westStandingsUrl);
-      //var eastIdsJson = await Network.getJson(Urls.eastTeamsUrl);
-      //var westIdsJson = await Network.getJson(Urls.westTeamsUrl);
       Provider.of<JsonFiles>(context, listen: false).setEastStandings(eastJson);
       Provider.of<JsonFiles>(context, listen: false).setWestStandings(westJson);
-      // print(eastJson);
-      // print("\n\n");
-      // print(westJson);
-      //Provider.of<JsonFiles>(context, listen: false).setEastId(eastIdsJson);
-      //Provider.of<JsonFiles>(context, listen: false).setWestId(westIdsJson);
+      for (int idx = 0; idx < 15; idx++) {
+        Provider.of<JsonFiles>(context, listen: false)
+            .setEastIdIndex(eastJson["api"]["standings"][idx]["teamId"], idx);
+        Provider.of<JsonFiles>(context, listen: false)
+            .setWestIdIndex(westJson["api"]["standings"][idx]["teamId"], idx);
+      }
       Navigator.pushNamed(context, "/layout");
     } catch (e) {
       print(e);

@@ -10,7 +10,7 @@ Note: Its important to get your API Key, the below steps explain how you can ach
 - After registering your account, go to the Api marketplace and subscribe to the Api-NBA @ https://rapidapi.com/api-sports/api/api-nba
 - Select a free plan which allows you to make a 100 calls per day.
 - Once subscribed to the Api on a free plan, get your API key.
-- Now Navigate to this file path on this project repo i.e lib/api/apikey
+- Now Navigate to this file path on this project repo i.e lib/services/apikey
 - create a new dart file called "key.dart"
 - paste below code in the dart file:
 

@@ -1,4 +1,4 @@
-import 'package:hoop/api/apikey/key.dart'; // get your own nba-Api key
+import 'package:hoop/services/apikey/key.dart'; // get your own nba-Api key
 
 class Urls {
   static String eastStandingsUrl =
