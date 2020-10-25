@@ -34,6 +34,7 @@ List<Widget> teams(BuildContext context) {
               builder: (context) => TeamDetails(
                 teamurl: allTeams[id][2],
                 json: teamsJson,
+                name: allTeams[id][0],
               ),
             ),
           );
@@ -54,6 +55,7 @@ List<Widget> teams(BuildContext context) {
                   CircleAvatar(
                     child: CachedLogo(
                       url: allTeams[id][2],
+                      radius: 40,
                     ),
                     radius: 40,
                     backgroundColor: Colors.transparent,

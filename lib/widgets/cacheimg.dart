@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class CachedLogo extends StatelessWidget {
   final String url;
-  CachedLogo({this.url});
+  final double radius;
+  CachedLogo({this.url, this.radius});
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
@@ -12,7 +13,7 @@ class CachedLogo extends StatelessWidget {
         placeholder: (context, url) => CircularProgressIndicator(),
         errorWidget: (context, url, error) => Icon(Icons.error),
       ),
-      radius: 40,
+      radius: radius,
       backgroundColor: Colors.transparent,
     );
   }
