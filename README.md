@@ -24,6 +24,6 @@ class NbaApi {
 
 ## Screenshots
 
-![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot1.png?raw=true)
-![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot2.png?raw=true)
-![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot3.png?raw=true)
+![hoop image1](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot1.png?raw=true)
+![hoop image2](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot2.png?raw=true)
+![hoop image3](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot3.png?raw=true)
