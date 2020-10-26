@@ -1,4 +1,4 @@
-# hoop
+# Hoop
 
 An NBA sporting app built with flutter(Googles UI framework) and the NBA-API.
 
@@ -21,3 +21,9 @@ class NbaApi {
 ```
 
 - Save the file, you should now be able to run the app on your device.
+
+## Screenshots
+
+![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot1.png?raw=true)
+![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot2.png?raw=true)
+![hoop image](https://github.com/ogasule/hoop/blob/master/screenshot/screenshot3.png?raw=true)
