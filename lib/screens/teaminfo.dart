@@ -7,8 +7,7 @@ import 'package:hoop/widgets/statcard.dart';
 class TeamDetails extends StatelessWidget {
   final dynamic json;
   final String teamurl;
-  final String name;
-  TeamDetails({@required this.json, @required this.teamurl, this.name});
+  TeamDetails({@required this.json, @required this.teamurl});
   @override
   Widget build(BuildContext context) {
     final String streak = json["winStreak"] == "1"
