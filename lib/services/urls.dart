@@ -9,4 +9,7 @@ class Urls {
       "https://api-nba-v1.p.rapidapi.com/teams/confName/east/?rapidapi-key=${NbaApi.key}";
   static String westTeamsUrl =
       "https://api-nba-v1.p.rapidapi.com/teams/confName/west/?rapidapi-key=${NbaApi.key}";
+  static String teamPlayersUrl(String id) {
+    return "https://api-nba-v1.p.rapidapi.com/players/teamId/$id/?rapidapi-key=${NbaApi.key}";
+  }
 }

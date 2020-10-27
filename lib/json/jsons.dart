@@ -7,6 +7,7 @@ class JsonFiles with ChangeNotifier {
   var _westId;
   Map _idEastIndex = {};
   Map _idWestIndex = {};
+  Map _teamPlayers = {};
 
   void setWestStandings(dynamic json) {
     _westStandings = json;
@@ -60,5 +61,14 @@ class JsonFiles with ChangeNotifier {
 
   dynamic getWestIds() {
     return _westId;
+  }
+
+  void addTeamPlayers(String teamId, dynamic json) {
+    _teamPlayers[teamId] = json;
+    notifyListeners();
+  }
+
+  dynamic getTeamRoster(String teamId) {
+    return _teamPlayers[teamId];
   }
 }
