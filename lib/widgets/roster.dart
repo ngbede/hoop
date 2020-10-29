@@ -17,7 +17,9 @@ class Roster extends StatelessWidget {
                 DataCell(
                   Text(
                     "Zion Williamson",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
                   ),
                 ),
               ],
