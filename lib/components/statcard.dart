@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/widgets/style.dart';
+import 'package:hoop/components/style.dart';
 
 class StatCard extends StatelessWidget {
   final String item1, item2, item3, item4;

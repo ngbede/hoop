@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/screens/views/results.dart';
-import 'package:hoop/screens/views/standings.dart';
-import 'package:hoop/screens/views/players.dart';
+import 'package:hoop/screens/views/results_view/results.dart';
+import 'package:hoop/screens/views/standings_view/standings.dart';
+import 'package:hoop/screens/views/player_view/players.dart';
 
 class Layout extends StatefulWidget {
   @override

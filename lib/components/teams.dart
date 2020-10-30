@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hoop/constant.dart';
-import 'package:hoop/widgets/cacheimg.dart';
-import 'package:hoop/screens/teaminfo.dart';
+import 'package:hoop/components/cacheimg.dart';
+import 'package:hoop/screens/views/player_view/teaminfo.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/json/jsons.dart';
 

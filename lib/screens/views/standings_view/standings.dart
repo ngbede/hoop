@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hoop/json/jsons.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/constant.dart';
-import 'package:hoop/widgets/table.dart';
+import 'package:hoop/components/table.dart';
 
 class Standings extends StatelessWidget {
   @override

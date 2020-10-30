@@ -1,8 +1,7 @@
-import 'package:hoop/widgets/cacheimg.dart';
+import 'package:hoop/components/cacheimg.dart';
 import 'package:flutter/material.dart';
-import 'package:hoop/widgets/statcard.dart';
-import 'package:hoop/widgets/playerlst.dart';
-import 'package:hoop/widgets/roster.dart';
+import 'package:hoop/components/statcard.dart';
+import 'package:hoop/components/roster.dart';
 
 //TODO: Get list of players in each team
 //TODO: Add a link to each teams official website
