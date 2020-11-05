@@ -1,95 +1,117 @@
 import 'package:flutter/material.dart';
 
+//FIXME: fix render overflow error
 class Roster extends StatelessWidget {
+  final dynamic json;
+  Roster({this.json});
+  List<List<DataRow>> roster() {
+    List<DataRow> playerNames = [];
+    List<DataRow> playerAttributes = [];
+    for (int index = 0; index < json["api"]["results"]; index++) {
+      dynamic base = json["api"]["players"][index];
+      Map league = base["leagues"];
+      if (league.length == 1 && league.keys.contains("standard")) {
+        playerNames.add(
+          DataRow(
+            cells: [
+              DataCell(
+                Text("${base["firstName"]} ${base["lastName"]}"),
+              ),
+            ],
+          ),
+        );
+
+        playerAttributes.add(
+          DataRow(
+            cells: [
+              DataCell(
+                Text(
+                  "${league["standard"]["pos"]}", //["standard"]["pos"]
+                ),
+              ),
+              DataCell(
+                Text(
+                  "${league["standard"]["jersey"]}", //["standard"]["jersey"]
+                ),
+              ),
+              DataCell(
+                Text(
+                  "${base["heightInMeters"]}",
+                ),
+              ),
+              DataCell(
+                Text("${base["weightInKilograms"]}"),
+              ),
+              DataCell(
+                Text("${base["dateOfBirth"]}"),
+              ),
+              DataCell(
+                Text("${base["collegeName"]}"),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+    return [playerNames, playerAttributes];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        DataTable(
-          columns: [
-            DataColumn(
-              label: Text("Name"),
-            ),
-          ],
-          rows: [
-            DataRow(
-              cells: [
-                DataCell(
-                  Text(
-                    "Zion Williamson",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-        Expanded(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: DataTable(
-              columns: [
-                DataColumn(
-                  label: Text(
-                    'Pos.',
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'No.',
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Height',
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'Weight',
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'DOB(Y-M-D)',
-                  ),
-                ),
-                DataColumn(
-                  label: Text(
-                    'From',
-                  ),
-                ),
-              ],
-              rows: [
-                DataRow(
-                  cells: [
-                    DataCell(
-                      Text("PF"), //
+    return Expanded(
+      // TODO: remove Expanded widget, this is just a short term fix
+      child: Row(
+        children: [
+          DataTable(
+            columns: [
+              DataColumn(
+                label: Text("Name"),
+              ),
+            ],
+            rows: roster()[0],
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text(
+                      'Pos.',
                     ),
-                    DataCell(
-                      Text("0"),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'No.',
                     ),
-                    DataCell(
-                      Text("6.6ft"),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Height',
                     ),
-                    DataCell(
-                      Text("285lb"),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Weight',
                     ),
-                    DataCell(
-                      Text("20-06-2000"),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'DOB(Y-M-D)',
                     ),
-                    DataCell(
-                      Text("Duke University"),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'From',
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+                rows: roster()[1],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

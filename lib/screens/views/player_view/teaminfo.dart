@@ -1,9 +1,8 @@
 import 'package:hoop/components/cacheimg.dart';
 import 'package:flutter/material.dart';
 import 'package:hoop/components/statcard.dart';
-import 'package:hoop/components/roster.dart';
+import 'package:hoop/components/playerlst.dart';
 
-//TODO: Get list of players in each team
 //TODO: Add a link to each teams official website
 class TeamDetails extends StatelessWidget {
   final dynamic json;
@@ -100,7 +99,10 @@ class TeamDetails extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Roster()
+              //Roster()
+              PlayerList(
+                teamId: json["teamId"],
+              )
             ],
           ),
         ),

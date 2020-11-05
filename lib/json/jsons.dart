@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:hoop/model/player.dart';
 
 class JsonFiles with ChangeNotifier {
   var _westStandings;
@@ -8,7 +7,7 @@ class JsonFiles with ChangeNotifier {
   var _westId;
   Map _idEastIndex = {};
   Map _idWestIndex = {};
-  Map<String, List<Player>> _teamPlayers = {};
+  Map<String, dynamic> _teamPlayers = {}; // teamID,Player_list
 
   void setWestStandings(dynamic json) {
     _westStandings = json;
@@ -64,9 +63,8 @@ class JsonFiles with ChangeNotifier {
     return _westId;
   }
 
-  void addTeamPlayers(String teamId, List<Player> teamList) {
+  void addTeamPlayers(String teamId, dynamic teamList) {
     _teamPlayers[teamId] = teamList;
-    notifyListeners();
   }
 
   dynamic getTeamRoster(String teamId) {

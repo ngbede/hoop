@@ -5,3 +5,5 @@ lib/services/apikey/key.dart
 .packages
 pubspec.lock
 .dart_tool
+.vscode
+request.http
