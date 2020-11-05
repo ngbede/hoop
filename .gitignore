@@ -1,0 +1,7 @@
+build
+lib/services/apikey/key.dart
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+.dart_tool
