@@ -18,7 +18,7 @@ class TeamDetails extends StatelessWidget {
         backgroundColor: Color(0XFFEDF1FF),
         body: Padding(
           padding: EdgeInsets.all(8.0),
-          child: Column(
+          child: ListView(
             children: [
               Container(
                 decoration: BoxDecoration(
@@ -94,7 +94,8 @@ class TeamDetails extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Player List",
+                "Roster",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),

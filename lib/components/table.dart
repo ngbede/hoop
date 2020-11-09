@@ -8,7 +8,6 @@ class ConfTable extends StatefulWidget {
   _ConfTableState createState() => _ConfTableState();
 }
 
-//.getEastStandings()
 class _ConfTableState extends State<ConfTable> {
   List<DataRow> tableData() {
     List<DataRow> table = List(15); // fixed table length of 15 teams

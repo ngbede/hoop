@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//FIXME: fix render overflow error
 class Roster extends StatelessWidget {
   final dynamic json;
   Roster({this.json});
@@ -15,7 +14,12 @@ class Roster extends StatelessWidget {
           DataRow(
             cells: [
               DataCell(
-                Text("${base["firstName"]} ${base["lastName"]}"),
+                Text(
+                  "${base["firstName"]} ${base["lastName"]}",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
@@ -26,27 +30,41 @@ class Roster extends StatelessWidget {
             cells: [
               DataCell(
                 Text(
-                  "${league["standard"]["pos"]}", //["standard"]["pos"]
+                  "${league["standard"]["pos"]}",
                 ),
               ),
               DataCell(
                 Text(
-                  "${league["standard"]["jersey"]}", //["standard"]["jersey"]
+                  "${league["standard"]["jersey"]}",
                 ),
               ),
               DataCell(
                 Text(
-                  "${base["heightInMeters"]}",
+                  base["heightInMeters"].toString().isEmpty
+                      ? "-"
+                      : "${base["heightInMeters"]}",
                 ),
               ),
               DataCell(
-                Text("${base["weightInKilograms"]}"),
+                Text(
+                  base["weightInKilograms"].toString().isEmpty
+                      ? "-"
+                      : "${base["weightInKilograms"]}",
+                ),
               ),
               DataCell(
-                Text("${base["dateOfBirth"]}"),
+                Text(
+                  base["dateOfBirth"].toString().isEmpty
+                      ? "-"
+                      : "${base["dateOfBirth"]}",
+                ),
               ),
               DataCell(
-                Text("${base["collegeName"]}"),
+                Text(
+                  base["collegeName"].toString().isEmpty
+                      ? "-"
+                      : "${base["collegeName"]}",
+                ),
               ),
             ],
           ),
@@ -58,60 +76,57 @@ class Roster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      // TODO: remove Expanded widget, this is just a short term fix
-      child: Row(
-        children: [
-          DataTable(
-            columns: [
-              DataColumn(
-                label: Text("Name"),
-              ),
-            ],
-            rows: roster()[0],
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                columns: [
-                  DataColumn(
-                    label: Text(
-                      'Pos.',
-                    ),
+    return Row(
+      children: [
+        DataTable(
+          columns: [
+            DataColumn(
+              label: Text("Name"),
+            ),
+          ],
+          rows: roster()[0],
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              columns: [
+                DataColumn(
+                  label: Text(
+                    'Pos',
                   ),
-                  DataColumn(
-                    label: Text(
-                      'No.',
-                    ),
+                ),
+                DataColumn(
+                  label: Text(
+                    'No',
                   ),
-                  DataColumn(
-                    label: Text(
-                      'Height',
-                    ),
+                ),
+                DataColumn(
+                  label: Text(
+                    'H(m)',
                   ),
-                  DataColumn(
-                    label: Text(
-                      'Weight',
-                    ),
+                ),
+                DataColumn(
+                  label: Text(
+                    'W(kg)',
                   ),
-                  DataColumn(
-                    label: Text(
-                      'DOB(Y-M-D)',
-                    ),
+                ),
+                DataColumn(
+                  label: Text(
+                    'DOB',
                   ),
-                  DataColumn(
-                    label: Text(
-                      'From',
-                    ),
+                ),
+                DataColumn(
+                  label: Text(
+                    'From',
                   ),
-                ],
-                rows: roster()[1],
-              ),
+                ),
+              ],
+              rows: roster()[1],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

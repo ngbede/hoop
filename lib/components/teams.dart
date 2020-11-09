@@ -15,7 +15,6 @@ List<Widget> teams(BuildContext context) {
     teamCard.add(
       GestureDetector(
         onTap: () {
-          print(allTeams[id][1]);
           dynamic teamsJson;
           if (allTeams[id][3] == "East") {
             int indexPos = Provider.of<JsonFiles>(context, listen: false)

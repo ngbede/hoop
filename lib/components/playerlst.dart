@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hoop/json/jsons.dart';
-//import 'package:hoop/screens/views/results.dart';
 import 'package:hoop/components/roster.dart';
 import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 import 'package:provider/provider.dart';
-// import 'package:provider/provider.dart';
-// import 'package:hoop/json/jsons.dart';
 
 class PlayerList extends StatelessWidget {
   final String teamId;
@@ -23,7 +20,6 @@ class PlayerList extends StatelessWidget {
               if (snapshot.hasData) {
                 Provider.of<JsonFiles>(context, listen: false).addTeamPlayers(
                     teamId, snapshot.data); // add teamRoster json to Provider
-                print(snapshot.data);
                 playerList = Roster(
                   json: snapshot.data,
                 );

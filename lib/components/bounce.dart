@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// animate ball in a bounce like motion
 class BouncingBall extends StatefulWidget {
   _BouncingBallState createState() => _BouncingBallState();
 }
