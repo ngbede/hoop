@@ -7,7 +7,9 @@ import 'package:hoop/components/playerlst.dart';
 class TeamDetails extends StatelessWidget {
   final dynamic json;
   final String teamurl;
-  TeamDetails({@required this.json, @required this.teamurl});
+  final String name;
+  TeamDetails(
+      {@required this.json, @required this.teamurl, @required this.name});
   @override
   Widget build(BuildContext context) {
     final String streak = json["winStreak"] == "1"
@@ -30,9 +32,30 @@ class TeamDetails extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CachedLogo(
-                        url: teamurl,
-                        radius: 45,
+                      Column(
+                        children: [
+                          CachedLogo(
+                            url: teamurl,
+                            radius: 45,
+                          ),
+                          GestureDetector(
+                            onTap: () => print("Go to team site"),
+                            child: Row(
+                              children: [
+                                Text(
+                                  name,
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.link,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                       Column(
                         children: [

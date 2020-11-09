@@ -33,6 +33,7 @@ List<Widget> teams(BuildContext context) {
               builder: (context) => TeamDetails(
                 teamurl: allTeams[id][2],
                 json: teamsJson,
+                name: allTeams[id][1],
               ),
             ),
           );
