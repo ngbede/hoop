@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class Network {
   /*
@@ -22,7 +23,22 @@ class Network {
         }
       }
     } catch (e) {
+      //TODO: Handle this exception
       throw e;
+    }
+  }
+
+  static Future<void> launchSite(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: true,
+        forceWebView: true,
+        enableJavaScript: true,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }

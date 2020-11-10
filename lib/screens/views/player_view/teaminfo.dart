@@ -2,10 +2,9 @@ import 'package:hoop/components/cacheimg.dart';
 import 'package:flutter/material.dart';
 import 'package:hoop/components/statcard.dart';
 import 'package:hoop/components/playerlst.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 
-//TODO: Refactor code to use multiprovider to handle website view
 class TeamDetails extends StatefulWidget {
   final dynamic json;
   final String teamurl;
@@ -24,29 +23,6 @@ class _TeamDetailsState extends State<TeamDetails> {
     final String streak = widget.json["winStreak"] == "1"
         ? "W"
         : "L"; // has the team been on a winning or losing streak
-
-    Future<void> _launchInWebViewOrVC(String url) async {
-      if (await canLaunch(url)) {
-        await launch(
-          url,
-          forceSafariVC: true,
-          forceWebView: true,
-          enableJavaScript: true,
-          headers: <String, String>{'my_header_key': 'my_header_value'},
-        );
-      } else {
-        throw 'Could not launch $url';
-      }
-    }
-
-    Widget _launchStatus(BuildContext context, AsyncSnapshot<void> snapshot) {
-      if (snapshot.hasError) {
-        return Text('Error: ${snapshot.error}');
-      } else {
-        return const Text('');
-      }
-    }
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0XFFEDF1FF),
@@ -72,10 +48,18 @@ class _TeamDetailsState extends State<TeamDetails> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-                                _launched = _launchInWebViewOrVC(
-                                    Urls.link(widget.name.toLowerCase()));
-                              });
+                              String name = widget.name == "76ers"
+                                  ? "sixers"
+                                  : widget.name.toLowerCase();
+                              setState(
+                                () {
+                                  _launched = Network.launchSite(
+                                    Urls.link(
+                                      name,
+                                    ),
+                                  );
+                                },
+                              );
                             },
                             child: Row(
                               children: [
@@ -168,8 +152,16 @@ class _TeamDetailsState extends State<TeamDetails> {
                 teamId: widget.json["teamId"],
               ),
               FutureBuilder<void>(
-                  future: _launched,
-                  builder: _launchStatus), // launch the teams official website
+                // launch the teams official website
+                future: _launched,
+                builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    return const Text('');
+                  }
+                },
+              ),
             ],
           ),
         ),

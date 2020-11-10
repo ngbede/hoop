@@ -161,7 +161,7 @@ Map westID = {
   ],
   "29": [
     'Portland Trail Blazers',
-    'Trail Blazers',
+    'Blazers',
     'https://upload.wikimedia.org//wikipedia//en//thumb//2//21//Portland_Trail_Blazers_logo.svg//1200px-Portland_Trail_Blazers_logo.svg.png',
     'West'
   ],

@@ -30,12 +30,16 @@ class Roster extends StatelessWidget {
             cells: [
               DataCell(
                 Text(
-                  "${league["standard"]["pos"]}",
+                  league["standard"]["pos"].toString().isEmpty
+                      ? "-"
+                      : "${league["standard"]["pos"]}",
                 ),
               ),
               DataCell(
                 Text(
-                  "${league["standard"]["jersey"]}",
+                  league["standard"]["jersey"].toString().isEmpty
+                      ? "-"
+                      : "${league["standard"]["jersey"]}",
                 ),
               ),
               DataCell(
