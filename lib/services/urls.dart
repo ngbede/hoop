@@ -11,6 +11,8 @@ class Urls {
       "$_apiBaseUrl/teams/confName/east/?rapidapi-key=${NbaApi.key}";
   static String westTeamsUrl =
       "$_apiBaseUrl/teams/confName/west/?rapidapi-key=${NbaApi.key}";
+  static String seasonGames =
+      "$_apiBaseUrl/games/league/standard/2019/?rapidapi-key=${NbaApi.key}";
   static String teamPlayersUrl(String id) =>
       "$_apiBaseUrl/players/teamId/$id/?rapidapi-key=${NbaApi.key}";
   static String link(String team) => _teamBaseUrl + team + "/";
