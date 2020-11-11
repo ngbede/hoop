@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/screens/loading.dart';
 import 'package:hoop/screens/layout.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/json/jsons.dart';
@@ -16,12 +15,9 @@ class MyApp extends StatelessWidget {
       create: (context) => JsonFiles(),
       child: MaterialApp(
         home: Scaffold(
-          body: LoadingScreen(),
+          body: Layout(),
         ),
         debugShowCheckedModeBanner: false,
-        routes: {
-          "/layout": (context) => Layout(),
-        },
       ),
     );
   }

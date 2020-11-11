@@ -35,11 +35,8 @@ class PlayerList extends StatelessWidget {
                   ],
                 );
               } else {
-                playerList = Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircularProgressIndicator(),
-                  ],
+                playerList = Center(
+                  child: CircularProgressIndicator(),
                 );
               }
               return playerList;
