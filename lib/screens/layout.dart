@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/screens/views/results_view/results.dart';
+import 'package:hoop/screens/views/games_view/games.dart';
 import 'package:hoop/screens/views/standings_view/standings.dart';
 import 'package:hoop/screens/views/player_view/players.dart';
 
@@ -12,7 +12,7 @@ class _LayoutState extends State<Layout> {
   int _selectedScreen = 0;
   List<Widget> views = [
     Standings(),
-    Results(),
+    Games(),
     Players(),
   ];
 
