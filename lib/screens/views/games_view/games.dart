@@ -3,7 +3,7 @@ import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 import 'package:hoop/json/jsons.dart';
 import 'package:provider/provider.dart';
-import 'package:hoop/components/gamelst.dart';
+import 'package:hoop/components/games_widgets/gamelst.dart';
 
 class Games extends StatelessWidget {
   @override
@@ -20,15 +20,17 @@ class Games extends StatelessWidget {
                   jsonFile: json,
                 );
               } else if (snapshot.hasError) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.error,
-                      size: 50,
-                    ),
-                    Text("Something went wrong!"),
-                  ],
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.error,
+                        size: 50,
+                      ),
+                      Text("Something went wrong!"),
+                    ],
+                  ),
                 );
               } else {
                 return Center(

@@ -1,7 +1,7 @@
 import 'package:hoop/components/cacheimg.dart';
 import 'package:flutter/material.dart';
-import 'package:hoop/components/statcard.dart';
-import 'package:hoop/components/playerlst.dart';
+import 'package:hoop/components/teams_widgets/statcard.dart';
+import 'package:hoop/components/teams_widgets/playerlst.dart';
 import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 

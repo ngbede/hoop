@@ -24,7 +24,7 @@ class Network {
       }
     } catch (e) {
       //TODO: Handle this exception
-      throw e;
+      print(e);
     }
   }
 

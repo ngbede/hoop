@@ -3,7 +3,7 @@ import 'package:hoop/json/jsons.dart';
 import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 import 'package:provider/provider.dart';
-import 'package:hoop/components/tabbar.dart';
+import 'package:hoop/components/standings_widgets/tabbar.dart';
 
 class Standings extends StatefulWidget {
   @override
@@ -65,18 +65,24 @@ class _StandingsState extends State<Standings> {
                 future: getFile(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   Widget table;
-                  if (snapshot.hasData) {
+                  if (snapshot.data == true) {
                     table = Bar(
                       eastTable:
                           Provider.of<JsonFiles>(context).getEastStandings(),
                       westTable:
                           Provider.of<JsonFiles>(context).getWestStandings(),
                     );
-                  } else if (snapshot.hasError) {
+                  } else if (snapshot.data == false) {
                     table = Center(
-                      child: Icon(
-                        Icons.error,
-                        size: 50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.error,
+                            size: 50,
+                          ),
+                          Text("Something went wrong!"),
+                        ],
                       ),
                     );
                   } else {

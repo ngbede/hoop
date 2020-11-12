@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/components/teams.dart';
+import 'package:hoop/components/teams_widgets/teams.dart';
 
 class Players extends StatelessWidget {
   @override

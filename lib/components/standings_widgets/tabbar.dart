@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hoop/components/table.dart';
-import '../constant.dart';
+import 'package:hoop/components/standings_widgets/table.dart';
+import '../../constant.dart';
 
 class Bar extends StatelessWidget {
   final dynamic eastTable;
