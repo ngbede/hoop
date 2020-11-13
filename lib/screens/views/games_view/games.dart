@@ -4,6 +4,7 @@ import 'package:hoop/services/urls.dart';
 import 'package:hoop/json/jsons.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/components/games_widgets/gamelst.dart';
+import 'package:hoop/components/connection.dart';
 
 class Games extends StatelessWidget {
   @override
@@ -28,10 +29,12 @@ class Games extends StatelessWidget {
                         Icons.error,
                         size: 50,
                       ),
-                      Text("Something went wrong!"),
+                      Text("An error occured!"),
                     ],
                   ),
                 );
+              } else if (snapshot.data == null) {
+                return NoConnection();
               } else {
                 return Center(
                   child: CircularProgressIndicator(),

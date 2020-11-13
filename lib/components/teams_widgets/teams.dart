@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hoop/constant.dart';
 import 'package:hoop/components/cacheimg.dart';
-import 'package:hoop/screens/views/player_view/teaminfo.dart';
+import 'package:hoop/screens/views/teams_view/teaminfo.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/json/jsons.dart';
 
@@ -16,16 +16,23 @@ List<Widget> teams(BuildContext context) {
       GestureDetector(
         onTap: () {
           dynamic teamsJson;
-          if (allTeams[id][3] == "East") {
-            int indexPos = Provider.of<JsonFiles>(context, listen: false)
-                .getEastIdIndex()[id];
-            teamsJson = Provider.of<JsonFiles>(context, listen: false)
-                .getEastStandings()["api"]["standings"][indexPos];
-          } else if (allTeams[id][3] == "West") {
-            int indexPos = Provider.of<JsonFiles>(context, listen: false)
-                .getWestIdIndex()[id];
-            teamsJson = Provider.of<JsonFiles>(context, listen: false)
-                .getWestStandings()["api"]["standings"][indexPos];
+          if ((Provider.of<JsonFiles>(context, listen: false)
+                      .getEastStandings() !=
+                  null &&
+              Provider.of<JsonFiles>(context, listen: false)
+                      .getEastStandings() !=
+                  null)) {
+            if (allTeams[id][3] == "East") {
+              int indexPos = Provider.of<JsonFiles>(context, listen: false)
+                  .getEastIdIndex()[id];
+              teamsJson = Provider.of<JsonFiles>(context, listen: false)
+                  .getEastStandings()["api"]["standings"][indexPos];
+            } else if (allTeams[id][3] == "West") {
+              int indexPos = Provider.of<JsonFiles>(context, listen: false)
+                  .getWestIdIndex()[id];
+              teamsJson = Provider.of<JsonFiles>(context, listen: false)
+                  .getWestStandings()["api"]["standings"][indexPos];
+            }
           }
           Navigator.push(
             context,

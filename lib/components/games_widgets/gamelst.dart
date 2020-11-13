@@ -3,7 +3,6 @@ import 'package:hoop/constant.dart';
 import 'package:hoop/components/cacheimg.dart';
 import 'package:hoop/components/games_widgets/time.dart';
 
-//TODO: Add the date/time for each game in its card
 //TODO: group game cards based on the date played
 class SeasonGames extends StatelessWidget {
   final dynamic jsonFile;

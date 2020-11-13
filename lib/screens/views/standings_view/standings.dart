@@ -4,6 +4,7 @@ import 'package:hoop/services/network.dart';
 import 'package:hoop/services/urls.dart';
 import 'package:provider/provider.dart';
 import 'package:hoop/components/standings_widgets/tabbar.dart';
+import 'package:hoop/components/connection.dart';
 
 class Standings extends StatefulWidget {
   @override
@@ -73,18 +74,7 @@ class _StandingsState extends State<Standings> {
                           Provider.of<JsonFiles>(context).getWestStandings(),
                     );
                   } else if (snapshot.data == false) {
-                    table = Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.error,
-                            size: 50,
-                          ),
-                          Text("Something went wrong!"),
-                        ],
-                      ),
-                    );
+                    table = NoConnection();
                   } else {
                     table = Center(
                       child: CircularProgressIndicator(),
