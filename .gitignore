@@ -7,3 +7,4 @@ pubspec.lock
 .dart_tool
 .vscode
 request.http
+.idea

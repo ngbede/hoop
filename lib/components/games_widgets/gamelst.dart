@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hoop/constant.dart';
 import 'package:hoop/components/cacheimg.dart';
+import 'package:hoop/components/games_widgets/time.dart';
 
 //TODO: Add the date/time for each game in its card
 //TODO: group game cards based on the date played
@@ -20,7 +21,8 @@ class SeasonGames extends StatelessWidget {
         // Check if Id is in allTeam and points aint empty
         if ((allTeams.containsKey(json["hTeam"]["teamId"]) &&
                 allTeams.containsKey(json["vTeam"]["teamId"])) &&
-            (json["hTeam"]["score"]["points"] != "")) {
+            ((json["hTeam"]["score"]["points"].toString().isNotEmpty))) {
+          List<String> gameTime = timeString(json["startTimeUTC"]);
           card = Padding(
             padding: EdgeInsets.all(8.0),
             child: Container(
@@ -57,9 +59,13 @@ class SeasonGames extends StatelessWidget {
                     Column(
                       children: [
                         Text(
+                          "${gameTime[2]}/${gameTime[1]}/${gameTime[0]} ${gameTime[3]}:${gameTime[4]}",
+                          style: TextStyle(fontSize: 8),
+                        ),
+                        Text(
                           "Vs",
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 15,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
