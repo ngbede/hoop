@@ -26,6 +26,6 @@ class NbaApi {
 
 ![hoop image1](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot1.png?raw=false)
 ![hoop image2](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot2.png?raw=false)
-![hoop image3](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot3_0.png?raw=false)
+![hoop image3](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot3.png?raw=false)
 ![hoop image4](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot4.png?raw=false)
 ![hoop image5](https://github.com/ngbede/hoop/blob/master/screenshot/screenshot5.png?raw=false)
